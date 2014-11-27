@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+var util = require("util");
+var path = require("path");
+var exec = require("child_process").exec;
+
+var pathFromEnv   = process.env.WRITE_GOOD_PATH;
+var writeGoodPath = (pathFromEnv && pathFromEnv + "/") || "";
+var commitFile    = path.join(process.cwd(), process.argv[2]);
+var command       = util.format(
+    "%swrite-good %s", writeGoodPath, commitFile
+);
+
+function err(message) {
+  process.stderr.write(util.format("write-good-git: %s\n", message));
+}
+
+exec(command, function (_, stdout) {
+  if (stdout !== "") {
+    // From the write-good output, strip out the line that
+    // points to the file being verified -- this will be
+    // a temporary commit message file, so it's useless.
+    var output = stdout.split("\n").slice(2).join("\n");
+    err(util.format("Commit message warnings:\n\n%s", output));
+
+    if (process.env.WRITE_GOOD_GIT_STRICT) {
+      err("Commit aborted, correct errors or unset WRITE_GOOD_GIT_STRICT");
+      process.exit(1);
+    }
+  }
+});
