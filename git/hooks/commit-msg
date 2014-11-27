@@ -8,7 +8,7 @@ var pathFromEnv   = process.env.WRITE_GOOD_PATH;
 var writeGoodPath = (pathFromEnv && pathFromEnv + "/") || "";
 var commitFile    = path.join(process.cwd(), process.argv[2]);
 var command       = util.format(
-    "%swrite-good %s", writeGoodPath, commitFile
+    "%swrite-good %s --no-passive", writeGoodPath, commitFile
 );
 
 function err(message) {
