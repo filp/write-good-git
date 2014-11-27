@@ -1,6 +1,6 @@
 # write-good-git
 
-Write more better commit messages, using [write-good](https://github.com/btford/write-good), a naive
+Write more good commit messages, using [write-good](https://github.com/btford/write-good), a naive
 linter for English prose, and a simple git hook.
 
 ![](http://i.imgur.com/PQe2mTf.png)
