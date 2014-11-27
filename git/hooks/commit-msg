@@ -23,7 +23,7 @@ exec(command, function (_, stdout) {
     var output = stdout.split("\n").slice(2).join("\n");
     err(util.format("Commit message warnings:\n\n%s", output));
 
-    if (process.env.WRITE_GOOD_GIT_STRICT) {
+    if (!process.env.WRITE_GOOD_GIT_ALLOW) {
       err("Commit aborted, correct errors or unset WRITE_GOOD_GIT_STRICT");
       process.exit(1);
     }

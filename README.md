@@ -33,7 +33,7 @@ linter for English prose, and a simple git hook.
 `write-good-git` accepts configuration through environment variables:
 
 - `WRITE_GOOD_PATH`: path to the location of the `write-good` executable
-- `WRITE_GOOD_GIT_STRICT`: if defined, `write-good-git` will cancel the commit if any errors are present
+- `WRITE_GOOD_GIT_ALLOW`: if defined, `write-good-git` will NOT cancel the commit if any errors are present
 
 
 ## Authors
