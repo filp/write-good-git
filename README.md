@@ -23,7 +23,7 @@ linter for English prose, and a simple git hook.
 
 - In the project you wish to use `write-good-git`, copy the hook to your `.git/hooks` directory.
 
-    `$ cp ../write-good-git/git/hooks/commit-msg ./git/hooks`
+    `$ cp ../write-good-git/git/hooks/commit-msg .git/hooks`
 
 - Done! Next time you commit on that project, you'll get warnings from `write-good` (if you don't write so good).
 
